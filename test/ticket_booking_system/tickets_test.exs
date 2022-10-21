@@ -32,7 +32,7 @@ defmodule TicketBookingSystem.TicketsTest do
                  booking_person_email: nil,
                  event_id: ^event_id
                }
-      ] = Repo.all(from t in Ticket, order_by: :seat_number)
+             ] = Repo.all(from(t in Ticket, order_by: :seat_number))
     end
 
     test "returns error when non existing event is used" do

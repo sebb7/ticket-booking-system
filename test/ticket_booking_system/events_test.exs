@@ -34,7 +34,7 @@ defmodule TicketBookingSystem.EventsTest do
                  booking_person_email: nil,
                  event_id: ^event_id
                }
-             ] = Repo.all(from t in Ticket, order_by: :seat_number)
+             ] = Repo.all(from(t in Ticket, order_by: :seat_number))
     end
 
     test "given too high number of tickets returns error" do
