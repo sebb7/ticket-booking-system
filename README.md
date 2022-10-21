@@ -1,21 +1,45 @@
-# TicketBookingSystem
+## TicketBookingSystem
 
-**TODO: Add description**
+This project was created for learning purposes.
 
-## Installation
+Functionalities:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ticket_booking_system` to your list of dependencies in `mix.exs`:
+- adding new event with given amount of tickets,
+- booking the ticket
+- listing events and tickets
+
+## Running the system
+
+Requirements for starting:
+
+- postgres database running (credentials should be adjusted)
+
+In order to start the project:
 
 ```elixir
-def deps do
-  [
-    {:ticket_booking_system, "~> 0.1.0"}
-  ]
-end
+ iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/ticket_booking_system>.
+Create an event with five numbered tickets:
 
+```elixir
+TicketBookingSystem.Events.create_with_tickets("test_event_name", 5)
+```
+
+List events with available tickets:
+
+```elixir
+TicketBookingSystem.Events.list_with_available_tickets()
+```
+
+Book a ticket with a given number:
+
+```elixir
+TicketBookingSystem.Tickets.book("test_event_name", 1, "test_email@example.com")
+```
+
+List bookings for given email:
+
+```elixir
+TicketBookingSystem.Tickets.list_for_email("test_email@example.com")
+```
